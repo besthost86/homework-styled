@@ -1,0 +1,92 @@
+{
+  "positions": [
+    {
+      "id": 1,
+      "name": "Game"
+    },
+    {
+      "id": 2,
+      "name": "Analytics"
+    },
+    {
+      "id": 3,
+      "name": "DevOps"
+    },
+    {
+      "id": 4,
+      "name": "Support"
+    },
+    {
+      "id": 5,
+      "name": "Testing"
+    }
+  ],
+  "technologies": [
+    {
+      "id": 1,
+      "name": "Javascript"
+    },
+    {
+      "id": 2,
+      "name": "Angular"
+    },
+    {
+      "id": 3,
+      "name": "React"
+    },
+    {
+      "id": 4,
+      "name": "Vue"
+    },
+    {
+      "id": 5,
+      "name": "Svelte"
+    },
+    {
+      "id": 6,
+      "name": "Backbone"
+    },
+    {
+      "id": 7,
+      "name": "AngularJS"
+    },
+    {
+      "id": 8,
+      "name": "Ember"
+    }
+  ],
+  "offers": [
+    {
+      "id": 1,
+      "name": "Frontend Dev",
+      "position": "Game",
+      "technologies": ["Javascript", "React"],
+      "remote": false,
+      "priceRange": [5000, 10000]
+    },
+    {
+      "id": 2,
+      "name": "Principal Dev",
+      "position": "Analytics",
+      "technologies": ["React"],
+      "remote": true,
+      "priceRange": null
+    },
+    {
+      "id": 3,
+      "name": "Fullstack Dev",
+      "position": "Game",
+      "technologies": ["Javascript", "Vue"],
+      "remote": false,
+      "priceRange": null
+    },
+    {
+      "id": 4,
+      "name": "Backend Dev",
+      "position": "Testing",
+      "technologies": ["Svelte", "React"],
+      "remote": true,
+      "priceRange": [3000, 8000]
+    }
+  ]
+}
