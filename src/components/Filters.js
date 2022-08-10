@@ -6,20 +6,15 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
     activeTechnologies: [],
     seniority: "all",
     remote: false,
-    priceRange: false,
+    priceRange: false
   });
 
   useEffect(() => {
-    const filteredOffers = offers.filter((offer) => {
-      if (
-        filterState.activePosition &&
-        filterState.activePosition !== offer.position
-      ) {
+    const filteredOffers = offers.filter(offer => {
+      if (filterState.activePosition && filterState.activePosition !== offer.position) {
         return false;
       }
-      const filter = filterState.activeTechnologies.every((technology) =>
-        offer.technologies.includes(technology)
-      );
+      const filter = filterState.activeTechnologies.every(technology => offer.technologies.includes(technology));
       if (!filter) {
         return filter;
       }
@@ -30,27 +25,26 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
   }, [filterState]);
 
   const toggleTechnologies = () => {
-    const newTech =
-      filterState.activeTechnologies.length === 0 ? technologies : [];
+    const newTech = filterState.activeTechnologies.length === 0 ? technologies : [];
     setFilterState({
       ...filterState,
-      activeTechnologies: newTech,
+      activeTechnologies: newTech
     });
   };
 
-  const handleTechnologyClick = (name) => {
+  const handleTechnologyClick = name => {
     const index = filterState.activeTechnologies.indexOf(name);
     if (index === -1) {
       setFilterState({
         ...filterState,
-        activeTechnologies: [...filterState.activeTechnologies, name],
+        activeTechnologies: [...filterState.activeTechnologies, name]
       });
     } else {
       const newTechnologies = [...filterState.activeTechnologies];
       newTechnologies.splice(index, 1);
       setFilterState({
         ...filterState,
-        activeTechnologies: newTechnologies,
+        activeTechnologies: newTechnologies
       });
     }
   };
@@ -58,21 +52,21 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
   const onRemoteClick = () => {
     setFilterState({
       ...filterState,
-      remote: !filterState.remote,
+      remote: !filterState.remote
     });
   };
 
   const onPriceRangeClick = () => {
     setFilterState({
       ...filterState,
-      priceRange: !filterState.priceRange,
+      priceRange: !filterState.priceRange
     });
   };
 
-  const onSelectChange = (event) => {
+  const onSelectChange = event => {
     setFilterState({
       ...filterState,
-      seniority: event.target.value,
+      seniority: event.target.value
     });
   };
 
@@ -81,8 +75,7 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
       <div className="upper-filters">
         <div>
           {positions.map(({ id, name }) => {
-            const className =
-              filterState.activePosition === name ? "active" : "";
+            const className = filterState.activePosition === name ? "active" : "";
             return (
               <button
                 className={className}
@@ -90,10 +83,9 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
                 onClick={() =>
                   setFilterState({
                     ...filterState,
-                    activePosition: name,
+                    activePosition: name
                   })
-                }
-              >
+                }>
                 {name}
               </button>
             );
@@ -102,37 +94,21 @@ export default function Filters({ positions, technologies, setFilteredOffers, of
       </div>
       <div className="lower-filters">
         <div className="technologies">
-          <button onClick={toggleTechnologies}>
-            {filterState.activeTechnologies.length === 0
-              ? "Select All"
-              : "Clear All"}
-          </button>
+          <button onClick={toggleTechnologies}>{filterState.activeTechnologies.length === 0 ? "Select All" : "Clear All"}</button>
           {technologies.map(({ id, name }) => {
-            const className = filterState.activeTechnologies.includes(name)
-              ? "active"
-              : "";
+            const className = filterState.activeTechnologies.includes(name) ? "active" : "";
             return (
-              <button
-                className={className}
-                key={id}
-                onClick={() => handleTechnologyClick(name)}
-              >
+              <button className={className} key={id} onClick={() => handleTechnologyClick(name)}>
                 {name}
               </button>
             );
           })}
         </div>
         <div className="others">
-          <button
-            onClick={onRemoteClick}
-            className={filterState.remote ? "active" : ""}
-          >
+          <button onClick={onRemoteClick} className={filterState.remote ? "active" : ""}>
             100% remote
           </button>
-          <button
-            onClick={onPriceRangeClick}
-            className={filterState.priceRange ? "active" : ""}
-          >
+          <button onClick={onPriceRangeClick} className={filterState.priceRange ? "active" : ""}>
             price range
           </button>
           <button>Not in React</button>

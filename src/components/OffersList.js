@@ -1,11 +1,9 @@
-import React from "react";
+import styled from "styled-components";
 
-import styled from 'styled-components'
-
-const List = styled.div({
-  display: "flex",
-  justifyContent: "center"
-})
+const List = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 function OffersList({ offers }) {
   return (
@@ -22,18 +20,16 @@ function OffersList({ offers }) {
           </tr>
         </thead>
         <tbody>
-          {offers.map(
-            ({ id, name, position, technologies, remote, priceRange }) => (
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{position}</td>
-                <td>{technologies.join(", ")}</td>
-                <td>{remote.toString()}</td>
-                <td>{priceRange?.join(" - ")}</td>
-              </tr>
-            )
-          )}
+          {offers.map(({ id, name, position, technologies, remote, priceRange }) => (
+            <tr>
+              <td>{id}</td>
+              <td>{name}</td>
+              <td>{position}</td>
+              <td>{technologies.join(", ")}</td>
+              <td>{remote.toString()}</td>
+              <td>{priceRange?.join(" - ")}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </List>
